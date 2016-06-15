@@ -16,7 +16,7 @@ Route::group(
             'uses' => 'MainController@createDirectory'
         ]);
 
-        Route::delete('dir/{name}', [
+        Route::delete('dir', [
             'as'   => 'anavel-uploads.destroy-dir',
             'uses' => 'MainController@destroyDirectory'
         ]);
@@ -26,7 +26,7 @@ Route::group(
             'uses' => 'MainController@upload'
         ]);
 
-        Route::delete('file/{name}', [
+        Route::delete('file', [
             'as'   => 'anavel-uploads.destroy-file',
             'uses' => 'MainController@destroyFile'
         ]);

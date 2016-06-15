@@ -4,6 +4,7 @@
             <form method="post" action="">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="name" value="">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">{{ trans('anavel-uploads::messages.modal_delete_title') }}</h4>

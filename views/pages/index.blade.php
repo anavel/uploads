@@ -68,9 +68,9 @@
                         </div>
                         <div class="col-sm-3">
                             @if ($object->isDir())
-                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-action="{{ route('anavel-uploads.destroy-dir', $object->getPath()) }}"><i class="fa fa-trash-o"></i></a>
+                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-action="{{ route('anavel-uploads.destroy-dir') }}" data-element="{{ $object->getPath() }}"><i class="fa fa-trash-o"></i></a>
                             @else
-                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-action="{{ route('anavel-uploads.destroy-file', $object->getPath()) }}"><i class="fa fa-trash-o"></i></a>
+                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-action="{{ route('anavel-uploads.destroy-file') }}" data-element="{{ $object->getPath() }}"><i class="fa fa-trash-o"></i></a>
                             @endif
                         </div>
                     </div>

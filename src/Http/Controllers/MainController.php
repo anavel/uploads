@@ -53,9 +53,9 @@ class MainController extends Controller
             ]);
     }
 
-    public function destroyDirectory($name)
+    public function destroyDirectory(Request $request)
     {
-        $this->filesystem->deleteDir($name);
+        $this->filesystem->deleteDir($request->get('name'));
 
         return redirect()
             ->back()
@@ -81,9 +81,9 @@ class MainController extends Controller
             ]);
     }
 
-    public function destroyFile($name)
+    public function destroyFile(Request $request)
     {
-        $this->filesystem->deleteFile($name);
+        $this->filesystem->deleteFile($request->get('name'));
 
         return redirect()
             ->back()
