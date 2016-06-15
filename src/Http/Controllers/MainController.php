@@ -53,9 +53,18 @@ class MainController extends Controller
             ]);
     }
 
-    public function destroyDirectory()
+    public function destroyDirectory($name)
     {
+        $this->filesystem->deleteDir($name);
 
+        return redirect()
+            ->back()
+            ->with('anavel-alert', [
+                'type'  => 'success',
+                'icon'  => 'fa-check',
+                'title' => trans('anavel-uploads::messages.alert_success_destroy_dir_title'),
+                'text'  => trans('anavel-uploads::messages.alert_success_destroy_dir_text')
+            ]);
     }
 
     public function upload(Request $request)
@@ -72,8 +81,17 @@ class MainController extends Controller
             ]);
     }
 
-    public function destroyFile()
+    public function destroyFile($name)
     {
+        $this->filesystem->deleteFile($name);
 
+        return redirect()
+            ->back()
+            ->with('anavel-alert', [
+                'type'  => 'success',
+                'icon'  => 'fa-check',
+                'title' => trans('anavel-uploads::messages.alert_success_destroy_file_title'),
+                'text'  => trans('anavel-uploads::messages.alert_success_destroy_file_text')
+            ]);
     }
 }

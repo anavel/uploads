@@ -28,6 +28,10 @@ class UploadsModuleProvider extends ModuleProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'anavel-uploads');
 
         $this->publishes([
+            __DIR__.'/../public/' => public_path('vendor/anavel-uploads/'),
+        ], 'assets');
+
+        $this->publishes([
             __DIR__.'/../config/anavel-uploads.php' => config_path('anavel-uploads.php'),
         ], 'config');
     }

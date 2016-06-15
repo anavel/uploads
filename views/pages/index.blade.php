@@ -30,6 +30,8 @@
         'directoriesArray' => $directoriesArray
     ])
 
+    @include('anavel-uploads::atoms.modals.delete')
+
     <div class="box">
         <div class="box-header">
             <div class="box-title">
@@ -65,7 +67,11 @@
                             {{ $object->getBasename() }}
                         </div>
                         <div class="col-sm-3">
-                            <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                            @if ($object->isDir())
+                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-action="{{ route('anavel-uploads.destroy-dir', $object->getPath()) }}"><i class="fa fa-trash-o"></i></a>
+                            @else
+                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-action="{{ route('anavel-uploads.destroy-file', $object->getPath()) }}"><i class="fa fa-trash-o"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -73,4 +79,9 @@
             </div>
         </div>
     </div>
+@stop
+
+@section('footer-scripts')
+    @parent
+    <script src="{{ asset('vendor/anavel-uploads/js/modals.js') }}" type="text/javascript"></script>
 @stop
