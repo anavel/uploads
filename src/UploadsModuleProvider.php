@@ -2,6 +2,9 @@
 namespace Anavel\Uploads;
 
 use Anavel\Foundation\Support\ModuleProvider;
+use League\Flysystem\Filesystem as Flysystem;
+use League\Flysystem\Adapter\Local;
+use Anavel\Uploads\Filesystem\Filesystem;
 use Request;
 
 class UploadsModuleProvider extends ModuleProvider
@@ -37,6 +40,17 @@ class UploadsModuleProvider extends ModuleProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/anavel-uploads.php', 'anavel-uploads');
+
+        $this->app->bind(
+            'anavel.filesystem',
+            function () {
+                $adapter = new Local(public_path(config('anavel-uploads.uploads_path')));
+
+                $flysystem = new Flysystem($adapter);
+
+                return new Filesystem($flysystem);
+            }
+        );
     }
 
     /**
@@ -46,7 +60,9 @@ class UploadsModuleProvider extends ModuleProvider
      */
     public function provides()
     {
-        return [];
+        return [
+            'anavel.filesystem'
+        ];
     }
 
     public function name()
@@ -61,7 +77,7 @@ class UploadsModuleProvider extends ModuleProvider
 
     public function mainRoute()
     {
-        return route('anavel-uploads.home');
+        return route('anavel-uploads.list');
     }
 
     public function hasSidebar()

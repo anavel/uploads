@@ -7,7 +7,7 @@ Route::group(
     ],
     function () {
         Route::get('/', [
-            'as'   => 'anavel-uploads.home',
+            'as'   => 'anavel-uploads.list',
             'uses' => 'MainController@index'
         ]);
 
@@ -22,7 +22,7 @@ Route::group(
         ]);
 
         Route::post('upload', [
-            'as'   => 'anavel-uploads.create-dir',
+            'as'   => 'anavel-uploads.upload-file',
             'uses' => 'MainController@upload'
         ]);
 
