@@ -2,7 +2,6 @@
 
 namespace Anavel\Uploads\Filesystem\Types;
 
-
 class File extends Type
 {
     /**

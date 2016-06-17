@@ -2,7 +2,6 @@
 
 namespace Anavel\Uploads\Filesystem\Types;
 
-
 class Directory extends Type
 {
     public function __construct($metadata)
