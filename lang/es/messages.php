@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'file_browser_title'                   => 'Sube y organiza tus archivos en carpetas',
+    'file_browser_title'                   => 'Repositorio de archivos',
     'create_directory'                     => 'Crear carpeta',
     'upload_file'                          => 'Subir archivo',
     'back_button'                          => 'Volver',
