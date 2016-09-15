@@ -30,5 +30,15 @@ Route::group(
             'as'   => 'anavel-uploads.destroy-file',
             'uses' => 'MainController@destroyFile'
         ]);
+
+        Route::post('/ckeditor/file/uploader', [
+            'as'   => 'anavel-uploads.ckeditor.file-uploader',
+            'uses' => 'CkEditorController@upload'
+        ]);
+
+        Route::get('/ckeditor/file/browser', [
+            'as'   => 'anavel-uploads.ckeditor.file-browser',
+            'uses' => 'CkEditorController@index'
+        ]);
     }
 );

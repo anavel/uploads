@@ -57,7 +57,7 @@
                     @if ($object->isDir())
                     <a href="{{ route('anavel-uploads.list', ['dir' => $object->getPath()]) }}">
                     @else
-                    <a href="{{ url(config('anavel-uploads.uploads_path').$object->getPath()) }}" target="_blank">
+                    <a href="{{ url(config('anavel-uploads.uploads_path').$object->getPath()) }}" class="img-preview" target="_blank">
                     @endif
                         {!! $object->getThumbnail() !!}
                     </a>

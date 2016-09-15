@@ -32,6 +32,21 @@ class File extends Type
 
     public function getThumbnail()
     {
-        return '<i class="fa fa-file" style="font-size: 100pt;"></i>';
+        if ($this->isImage()) {
+            return sprintf('<img src="%s" alt="">', url(config('anavel-uploads.uploads_path').$this->getPath()));
+        } else {
+            return '<i class="fa fa-file" style="font-size: 100pt;"></i>';
+        }
+    }
+
+    protected function isImage()
+    {
+        $imageExtensions = ['png', 'jpg', 'jpeg'];
+
+        if (in_array($this->extension, $imageExtensions)) {
+            return true;
+        }
+
+        return false;
     }
 }
