@@ -40,5 +40,13 @@ Route::group(
             'as'   => 'anavel-uploads.ckeditor.file-browser',
             'uses' => 'CkEditorController@index'
         ]);
+
+
+        Route::get('/modal/file/browser', [
+            'as'   => 'anavel-uploads.modal.file-browser',
+            'uses' => 'ModalController@index'
+        ]);
+
+
     }
 );
