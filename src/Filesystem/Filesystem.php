@@ -46,9 +46,7 @@ class Filesystem
 
     public function writeFile($directory, $file)
     {
-        $stream = fopen($file->getRealPath(), 'r+');
-        $this->flysystem->writeStream($directory . '/' . $file->getClientOriginalName(), $stream);
-        fclose($stream);
+        copy($file->getRealPath(), $directory.'/'.$file->getClientOriginalName());
     }
 
     public function deleteFile($file)
